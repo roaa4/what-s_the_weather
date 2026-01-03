@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:whats_the_weather/bloc/weather_bloc_bloc.dart';
+// import 'package:whats_the_weather/bloc/weather_bloc_bloc.dart';
+import 'package:whats_the_weather/cubit/weather_cubit.dart';
+import 'package:whats_the_weather/cubit/weather_state.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -110,9 +113,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: BoxDecoration(color: Colors.transparent),
                 ),
               ),
-              BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
+             BlocBuilder<WeatherCubit, WeatherState>(
                 builder: (context, state) {
-                  if (state is WeatherBlocSuccess) {
+                  if (state is WeatherSuccess) {
                     return SizedBox(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
